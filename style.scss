@@ -1,0 +1,150 @@
+.balloon-slider {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    animation: transition 40s linear infinite;
+    .slider-wrapper {
+        transform: translateX(0);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%
+    }
+    .balloon-item {
+        display: block;
+        transition: all .3s ease-in-out;
+        .balloon-image {
+            -webkit-background-size: 70%;
+            -moz-background-size: 70%;
+            -o-background-size: 70%;
+            background-size: 70%;
+            background-position: center;
+            background-repeat: no-repeat
+        }
+        div {
+            transition: all 5.75s ease-in-out;
+            div {
+                background: #fff;
+                border-radius: 50%;
+                height: 150px;
+                width: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #222;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, .1), 0 3px 10px rgba(0, 0, 0, .07);
+                position: relative;
+                margin: auto;
+                transition: all .3s ease-in-out;
+                animation: bubbles-first 5s ease-in-out infinite;
+            }
+        }
+        &:nth-child(2n) div div {
+            animation: bubbles-second 5s ease-in-out infinite;
+        }
+        &:nth-child(3n+2) div div {
+            animation: bubbles-third 5s ease-in-out infinite;
+        }
+        &:nth-child(6n+2) div div {
+            animation: bubbles-fourth 5s ease-in-out infinite;
+        }
+        &:nth-child(3n+2) div {
+            transform: translateX(-200px);
+        }
+        &:nth-child(3n+3) {
+            top: 368px;
+        }
+        &:nth-child(3n+2) {
+            top: 188px;
+        }
+        &:nth-child(3n+1) {
+            top: 8px;
+        }
+        &:nth-child(2n+1) div {
+            transform: scale(.8);
+        }
+        &:nth-child(4n+2) div,
+        &:nth-child(4n+4) div {
+            transform: scale(.9);
+        }
+        &:nth-child(7n) div {
+            transform: scale(.9);
+        }
+        &:nth-child(7n+1) div {
+            transform: scale(.9);
+        }
+        &:nth-child(8n+4) div {
+            transform: scale(.9);
+        }
+        &:nth-child(10n) div {
+            transform: scale(.9);
+        }
+        @keyframes bubbles-first {
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+            40% {
+                transform: translate(5px, 8px)
+            }
+            80% {
+                transform: translate(-5px, 4px)
+            }
+        }
+        @keyframes bubbles-second {
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+            40% {
+                transform: translate(-5px, -8px)
+            }
+            80% {
+                transform: translate(5px, -4px)
+            }
+        }
+        @keyframes bubbles-third {
+            0%,
+            100% {
+                transform: translate(145px, 5px)
+            }
+            40% {
+                transform: translate(150px, -4px)
+            }
+            80% {
+                transform: translate(155px, -5px)
+            }
+        }
+        @keyframes bubbles-fourth {
+            0%,
+            100% {
+                transform: translate(150px, 2px)
+            }
+            40% {
+                transform: translate(145px, -8px)
+            }
+            80% {
+                transform: translate(155px, 3px)
+            }
+        }
+    }
+    @keyframes transition {
+        from {
+            transform: translateX(0)
+        }
+        to {
+            transform: translateX(-100%)
+        }
+    }
+}
+
+@media screen and (max-width: 475px) {
+    body {
+        margin: 0px;
+    }
+    #balloon_wrapper_1 {
+        width: 375px !important;
+    }
+}
